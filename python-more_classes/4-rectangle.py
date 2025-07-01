@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-"""This module defines a Rectangle class that represents a rectangle with width and height.
-It supports calculating area, perimeter, string representation, and recreation via eval().
+"""This module defines a Rectangle class.
+
+It represents a rectangle with width and height. Supports area,
+perimeter, string representation, and recreation using eval().
 """
+
 
 class Rectangle:
     """Defines a rectangle with width and height."""
@@ -44,17 +47,4 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
-        """Return the perimeter of the rectangle."""
-        if self.__width == 0 or self.__height == 0:
-            return 0
-        return 2 * (self.__width + self.__height)
-
-    def __str__(self):
-        """Return the rectangle as a string of '#' characters."""
-        if self.__width == 0 or self.__height == 0:
-            return ""
-        return "\n".join(["#" * self.__width for _ in range(self.__height)])
-
-    def __repr__(self):
-        """Return a string representation that can recreate the object."""
-        return f"Rectangle({self.__width}, {self.__height})"
+        """Retur
