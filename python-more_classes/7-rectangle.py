@@ -2,11 +2,16 @@
 """
 This module defines the Rectangle class.
 
-It supports width and height attributes, instance counting,
-custom print symbols, and string representations.
+The Rectangle class defines a geometric rectangle using private width
+and height attributes, and provides methods to compute area and perimeter.
+
+It includes:
+- Instance counting via `number_of_instances`
+- A customizable symbol for string representation via `print_symbol`
+- Proper `__str__` and `__repr__` behavior
+- Input validation for all attributes
+- Cleanup message on deletion
 """
-
-
 class Rectangle:
     """Defines a rectangle with width, height, and print symbol."""
 
@@ -54,3 +59,21 @@ class Rectangle:
     def perimeter(self):
         """Return the perimeter of the rectangle, or 0 if width or height is 0."""
         if self.width == 0 or self.height == 0:
+            return 0
+        return 2 * (self.width + self.height)
+
+    def __str__(self):
+        """Return the string representation using print_symbol."""
+        if self.width == 0 or self.height == 0:
+            return ""
+        symbol = str(self.print_symbol)
+        return "\n".join([symbol * self.width for _ in range(self.height)])
+
+    def __repr__(self):
+        """Return a string to recreate the rectangle using eval()."""
+        return f"Rectangle({self.width}, {self.height})"
+
+    def __del__(self):
+        """Print a message and update instance count on deletion."""
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
