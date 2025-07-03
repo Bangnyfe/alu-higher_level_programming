@@ -58,22 +58,17 @@ class Rectangle:
         return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Return the string representation of the rectangle with '#' characters."""
+        """Return string representation of the rectangle using '#' characters."""
         if self.width == 0 or self.height == 0:
             return ""
-        return "\n".join(["#" * self.width for _ in range(self.height)])
+        row = "#" * self.width
+        return "\n".join([row for _ in range(self.height)])
 
     def __repr__(self):
-        """
-        Return an official string representation
-        that can recreate the object.
-        """
+        """Return string that recreates the rectangle using eval()."""
         return f"Rectangle({self.width}, {self.height})"
 
     def __del__(self):
-        """
-        Print a message when an instance is deleted
-        and decrement instance counter.
-        """
+        """Print message and update instance count on deletion."""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
