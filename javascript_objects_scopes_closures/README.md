@@ -1,0 +1,1 @@
+This is the directory for javascript_objects_scopes_closures
